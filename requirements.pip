@@ -6,6 +6,7 @@
 
 http://www.djangoproject.com/download/1.2-beta-1/tarball/
 django-gatekeeper==0.3.0
+django-ratings==0.3.4
 django-extensions==0.4.1
 django-staticfiles==0.2.0
 south==0.6
