@@ -4,7 +4,7 @@
 #
 #     pip install -U -r requirements.pip
 
-django==1.1.1
+http://www.djangoproject.com/download/1.2-beta-1/tarball/
 django-extensions==0.4.1
 django-staticfiles==0.2.0
 south==0.6
