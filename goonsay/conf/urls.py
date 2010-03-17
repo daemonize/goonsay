@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
-    # local app urls here
+    url(r'^admin/gatekeeper/', include('gatekeeper.urls')),
 )

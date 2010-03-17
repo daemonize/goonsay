@@ -50,6 +50,13 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'templates'),
 )
 
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'gatekeeper.middleware.GatekeeperMiddleware',
+)
+
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
     'staticfiles.context_processors.static_url',
@@ -66,4 +73,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'staticfiles',
     'south',
+
+    'gatekeeper',
 )
