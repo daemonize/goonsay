@@ -1,0 +1,7 @@
+*~
+*.pyc
+docs/_build/*
+uploads
+goonsay/conf/local/*.py
+dev.db
+goonsay.egg-info
