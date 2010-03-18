@@ -11,28 +11,32 @@
             <div id="header_inner" class="fluid">
 
                 <div id="logo">
-                    <h1><span>Nonzero</span>1.0</h1>
-                    <h2>By NodeThirtyThree Design</h2>
+                    <h1>goonsay</h1>
                 </div>
 
+                {% block menu %}
                 <div id="menu">
                     <ul>
-                        <li><a href="#" class="active">Blog</a></li>
-                        <li><a href="#">About Me</a></li>
-                        <li><a href="#">Photos</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Contact Me</a></li>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Latest</a></li>
+                        <li><a href="#">Random</a></li>
+                        <li><a href="#">Top</a></li>
+                        <li><a href="#">Add GoonSay</a></li>
+                        <li><a href="#">Search</a></li>
                     </ul>
                 </div>
+                {% endblock menu %}
 
             </div>
         </div>
 
         <div id="main">
             <div id="main_inner" class="fluid">
-                <div id="primaryContent_columnless">
 
+                <div id="primaryContent_columnless">
                     <div id="columnA_columnless">
+                        {% block content %}
+                        {% endblock content %}
                     </div>
                 </div>
 
@@ -42,7 +46,7 @@
         </div>
 
         <div id="footer" class="fluid">
-            Copyright &copy; 2006 Your Website. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a>.
+            Copyright &copy; 2010 Your Website. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a>.
         </div>
     </body>
 </html>
