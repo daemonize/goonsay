@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block search %}
+<h4>Search</h4>
+
+<form method="get" action="{% url haystack_search %}">
+    <div id="search">
+        {{ form.q }}
+        <input type="submit" class="button" value="Go" />
+        
+        <br class="clear" />
+    </div>
+</form>
+{% endblock search %}
+
+{% block content %}
+    <form method="get" action="">
+        <div class="search">
+            {{ form.as_p }}
+            <input class="submit" type="submit" value="Search" />
+        </div>
+    </form>
+
+    {% if query %}
+        <h3>Results</h3>
+
+        {% for result in page.object_list %}
+            <p>
+                <a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a>
+            </p>
+        {% empty %}
+            <p>No results found.</p>
+        {% endfor %}
+    {% else %}
+        {# Show some example queries to run, maybe query syntax, something else? #}
+    {% endif %}
+{% endblock %}

@@ -86,4 +86,5 @@ INSTALLED_APPS = (
     'haystack',
 
     'goonsay.apps.goonsay',
+    'goonsay.apps.search',
 )
