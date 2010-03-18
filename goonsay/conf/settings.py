@@ -48,6 +48,8 @@ HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
 HAYSTACK_WHOOSH_PATH = '/home/goonsay/whoosh/goonsay_index'
 
+ACCOUNT_ACTIVATION_DAYS = 30
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
@@ -81,10 +83,10 @@ INSTALLED_APPS = (
     'south',
 
     'gatekeeper',
-    'voting',
     'navbar',
     'haystack',
 
     'goonsay.apps.goonsay',
     'goonsay.apps.search',
+    'goonsay.apps.voting',
 )

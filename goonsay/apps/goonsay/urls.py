@@ -51,7 +51,7 @@ urlpatterns = patterns('',
     ),
     url(
         r'^(?P<object_id>\d+)/vote/(?P<direction>up|down|clear)/$',
-        'voting.views.vote_on_object',
+        'goonsay.apps.voting.views.vote_on_object',
         {
             'model': GoonSay,
             'allow_xmlhttprequest': True,
