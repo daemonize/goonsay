@@ -5,7 +5,6 @@ from goonsay.apps.goonsay.models import GoonSay
 
 class GoonSayIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
-    added = DateTimeField(model_attr='added')
 
     def get_queryset(self):
         return GoonSay.objects.all().approved()
