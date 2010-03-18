@@ -28,6 +28,15 @@ urlpatterns = patterns('',
         name='random',
     ),
     url(
+        r'^top/$',
+        'django.views.generic.list_detail.object_list',
+        {
+            'queryset': GoonSay.objects.select_score().order_by('-score').approved()[:100],
+            'extra_context': {'title': 'Top 100'},
+        },
+        name='top',
+    ),
+    url(
         r'^add/$',
         'goonsay.apps.goonsay.views.add',
         name='add',
