@@ -21,7 +21,7 @@ urlpatterns = patterns('',
         r'^browse/(?P<page>[0-9(?:last)]+)/$',
         'django.views.generic.list_detail.object_list',
         {
-            'queryset': GoonSay.objects.order_by('added'),#.approved(),
+            'queryset': GoonSay.objects.order_by('added').approved(),
             'paginate_by': 25,
             'extra_context': {'title': 'Browse'},
         },
