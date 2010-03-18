@@ -76,6 +76,7 @@ INSTALLED_APPS = (
 
     'gatekeeper',
     'djangoratings',
+    'navbar',
 
     'goonsay.apps.goonsay',
 )

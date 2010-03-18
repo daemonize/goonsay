@@ -9,5 +9,6 @@ django-gatekeeper==0.3.0
 django-ratings==0.3.4
 django-extensions==0.4.1
 django-staticfiles==0.2.0
+-e svn+http://django-navbar.googlecode.com/svn/trunk/#egg=django-navbar
 south==0.6
 docutils
