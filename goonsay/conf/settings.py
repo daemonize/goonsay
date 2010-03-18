@@ -42,6 +42,8 @@ LOGIN_URL = '/accounts/login/'
 LOGOUT_URL = '/accounts/logout/'
 LOGIN_REDIRECT_URL = '/'
 
+PISTON_EMAIL_ERRORS = False
+
 HAYSTACK_SITECONF = 'goonsay.conf.search'
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
