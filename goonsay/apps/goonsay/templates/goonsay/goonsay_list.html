@@ -1,12 +1,23 @@
 {% extends "base.html" %}
-{% load goonsay_tags %}
+{% load goonsay_tags voting_tags %}
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block extra_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/vote.js"></script>
+{% endblock %}
+
 {% block content %}
 {% for object in object_list %}
+{% score_for_object object as score %}
 <div class="goonsay-list {% cycle 'leftgoonsay' 'rightgoonsay' %}">
-    <div class="title"><a href="{{ object.get_absolute_url }}">{{ object }}</a></div>
+    <div class="title"><a href="{{ object.get_absolute_url }}">{{ object }}</a>
+        <div class="voting">
+            <a class="vote-up" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
+            (<span class="score-value">{{ score.score }}</span>) 
+            <a class="vote-down" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
+        </div>
+    </div>
     <blockquote>
             {{ object.text }}
     </blockquote>

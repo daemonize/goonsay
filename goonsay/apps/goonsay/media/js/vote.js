@@ -1,13 +1,14 @@
 $(document).ready(function(){
     var fadeout_delay = 5000;
     $('.vote-up').click(function(){
+        var link = $(this).parent().find('.score-value');
         $.ajax({
             'url': $(this).attr('href'),
             'type': 'POST',
             'dataType': 'json',
             'success': function(data){
                 if( data.success ){
-                    $('#score-value').text(data.score.score);
+                    link.text(data.score.score);
                     $('#vote-msg').text('Thanks for Voting!').fadeIn('fast');
                     setTimeout(function(){
                         $('#vote-msg').fadeOut('slow');
@@ -23,13 +24,14 @@ $(document).ready(function(){
         return false;
     });
     $('.vote-down').click(function(){
+        var link = $(this).parent().find('.score-value');
         $.ajax({
             'url': $(this).attr('href'),
             'type': 'POST',
             'dataType': 'json',
             'success': function(data){
                 if( data.success ){
-                    $('#score-value').text(data.score.score);
+                    link.text(data.score.score);
                     $('#vote-msg').text('Thanks for Voting!').fadeIn('fast');
                     setTimeout(function(){
                         $('#vote-msg').fadeOut('slow');
