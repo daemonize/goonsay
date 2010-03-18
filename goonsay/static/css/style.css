@@ -427,3 +427,54 @@ max-width: 2.5em;
 	position: relative;
 	width: 100%;
 	}
+
+/* Add Page */
+div.add-goonsay textarea { width: 100% }
+div.submit-goonsay { text-align: right; }
+
+div.goonsay-form {
+    background-image: url('../img/goonsay-small.png');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    padding-bottom: 75px;
+}
+
+div.goonsay, div.goonsay-list {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 85px;
+    background-image: url('../img/goonsay-small.png');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+div.goonsay-list {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+
+div.leftgoonsay { background-image: url('../img/goonsay-extrasmall.png'); }
+div.rightgoonsay {
+    background-image: url('../img/goonsay-right-extrasmall.png');
+    background-position: bottom right; 
+}
+
+blockquote {
+    border: 2px solid #E5CCD0;
+    padding: 10px 10px 10px 10px;
+    width: 80%;
+    margin: auto;
+}
+
+div.goonsay div.title, div.goonsay-list div.title {
+    width: 80%;
+    margin: auto;
+    font-weight: bold;
+}
+
+div.goonsay { font-size: 1.5em; }
+
+div.title a { text-decoration: none; color: #D90000; }
+div.title a:hover { text-decoration: underline; }
+
+div.paginated { text-align: center; }

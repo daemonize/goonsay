@@ -1,0 +1,9 @@
+{% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}">Previous</a>{% endif %}
+{% for page in page_numbers %}
+    {% ifequal page page_obj.number %}
+        <b>{{ page }}</b>
+    {% else %}
+        <a href="?page={{ page }}">{{ page }}</a>
+    {% endifequal %}
+{% endfor %}
+{% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}">Next</a>{% endif %}

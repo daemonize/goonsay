@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load goonsay_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% for object in object_list %}
+<div class="goonsay-list {% cycle 'leftgoonsay' 'rightgoonsay' %}">
+    <div class="title"><a href="{{ object.get_absolute_url }}">{{ object }}</a></div>
+    <blockquote>
+            {{ object.text }}
+    </blockquote>
+</div>
+{% endfor %}
+{% if is_paginated %}
+    <div class="paginated">
+        {% render_paginator 2 3 %}
+    </div>
+{% endif %}
+{% endblock %}
