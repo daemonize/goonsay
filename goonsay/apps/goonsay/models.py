@@ -4,6 +4,7 @@ from django.utils.translation  import ugettext_lazy as _
 import gatekeeper
 
 from goonsay.apps.goonsay.managers import VotedObjectsManager
+from goonsay.apps.voting.models import Vote
 
 class GoonSay(models.Model):
     text = models.TextField(_('text'))
@@ -22,5 +23,8 @@ class GoonSay(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('goonsay:detail', (), {'object_id': self.id})
+
+    def get_score(self):
+        return Vote.objects.get_score(self)
 
 gatekeeper.register(GoonSay)
