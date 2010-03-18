@@ -4,55 +4,7 @@
 {% block title %}{{ object }}{% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript">
-    $(document).ready(function(){
-        var fadeout_delay = 5000;
-        $('#vote-up').click(function(){
-            $.ajax({
-                'url': '{% url goonsay:voting object_id=object.pk direction='up' %}',
-                'type': 'POST',
-                'dataType': 'json',
-                'success': function(data){
-                    if( data.success ){
-                        $('#score-value').text(data.score.score);
-                        $('#vote-msg').text('Thanks for Voting!').fadeIn('fast');
-                        setTimeout(function(){
-                            $('#vote-msg').fadeOut('slow');
-                        }, fadeout_delay);
-                    } else {
-                        $('#vote-msg').text(data.error_message).fadeIn('fast');
-                        setTimeout(function(){
-                            $('#vote-msg').fadeOut('slow')
-                        }, fadeout_delay);
-                    }
-                }
-                });
-            return false;
-        });
-        $('#vote-down').click(function(){
-            $.ajax({
-                'url': '{% url goonsay:voting object_id=object.pk direction='down' %}',
-                'type': 'POST',
-                'dataType': 'json',
-                'success': function(data){
-                    if( data.success ){
-                        $('#score-value').text(data.score.score);
-                        $('#vote-msg').text('Thanks for Voting!').fadeIn('fast');
-                        setTimeout(function(){
-                            $('#vote-msg').fadeOut('slow');
-                        }, fadeout_delay);
-                    } else {
-                        $('#vote-msg').text(data.error_message).fadeIn('fast');
-                        setTimeout(function(){
-                            $('#vote-msg').fadeOut('slow');
-                        }, fadeout_delay);
-                    }
-                }
-                });
-            return false;
-        });
-    });
-</script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/vote.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -69,9 +21,9 @@
     <div id="vote-msg"></div>
     <div class="title">{{ object }}
         <div class="voting">
-            <a id="vote-up" class="up" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
+            <a class="vote-up" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
             (<span id="score-value">{{ score.score }}</span>) 
-            <a id="vote-down" class="down" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
+            <a class="vote-down" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
         </div>
     </div>
     <blockquote>
