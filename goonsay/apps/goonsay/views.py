@@ -18,6 +18,9 @@ def add(request):
     if request.method == 'POST':
         post_vars = request.POST.copy()
         post_vars['added_ip'] = request.META['REMOTE_ADDR']
+        qs = GoonSay.objects.filter(text=post_vars['text'])
+        if len(qs):
+            return HttpResponseRedirect(qs[0].get_absolute_url())
         form = GoonSayForm(post_vars, request.FILES)
         if form.is_valid():
             new_object = form.save()

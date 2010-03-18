@@ -54,6 +54,8 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'templates'),
 )
 
+CACHE_BACKEND = 'dummy://'
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

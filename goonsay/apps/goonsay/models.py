@@ -7,7 +7,7 @@ from goonsay.apps.goonsay.managers import VotedObjectsManager
 from goonsay.apps.voting.models import Vote
 
 class GoonSay(models.Model):
-    text = models.TextField(_('text'))
+    text = models.TextField(_('text'), unique=True)
     added = models.DateTimeField(_('added'), auto_now_add=True)
     added_ip = models.IPAddressField(_('added by ip'))
 
