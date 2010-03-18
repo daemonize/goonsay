@@ -40,10 +40,28 @@
         <div id="main">
             <div id="main_inner" class="fluid">
 
-                <div id="primaryContent_columnless">
-                    <div id="columnA_columnless">
+                <div id="primaryContent_2columns">
+                    <div id="columnA_2columns">
                         {% block content %}
                         {% endblock content %}
+                    </div>
+                </div>
+
+                <div id="secondaryContent_2columns">
+                    <div id="columnC_2columns">
+                        {% block sidebar %}
+                            {% block search %}
+                            <h4>Search</h4>
+                            <form method="get" action="{% url haystack_search %}">
+                                <div id="search"> 
+                                    <input type="text" class="text" name="q" />
+                                    <input type="submit" class="button" value="Go" />
+                                    <br class="clear" />
+                                </div> 
+                            </form>
+                            {% endblock search %}
+
+                        {% endblock sidebar %}
                     </div>
                 </div>
 
