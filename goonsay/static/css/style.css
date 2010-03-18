@@ -478,3 +478,16 @@ div.title a { text-decoration: none; color: #D90000; }
 div.title a:hover { text-decoration: underline; }
 
 div.paginated { text-align: center; }
+
+div.goonsay-voting-confirm {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #D90000;
+}
+
+div.goonsay-voting-confirm div { margin-top: 1em; }
+
+div.voting { display: inline; float: right; }
+
+div#vote-msg { text-align: center; display: none; }
