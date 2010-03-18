@@ -9,7 +9,7 @@ PROJECT_ROOT, PROJECT_MODULE_NAME = os.path.split(
     os.path.dirname(os.path.realpath(goonsay.__file__))
 )
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # Local time zone for this installation. Choices can be found here:
@@ -23,7 +23,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -47,9 +47,6 @@ HAYSTACK_SITECONF = 'goonsay.conf.search'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
 HAYSTACK_WHOOSH_PATH = '/home/goonsay/whoosh/goonsay_index'
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'templates'),
