@@ -3,10 +3,14 @@ from django.utils.translation  import ugettext_lazy as _
 
 import gatekeeper
 
+from goonsay.apps.goonsay.managers import VotedObjectsManager
+
 class GoonSay(models.Model):
     text = models.TextField(_('text'))
     added = models.DateTimeField(_('added'), auto_now_add=True)
     added_ip = models.IPAddressField(_('added by ip'))
+
+    objects = VotedObjectsManager()
 
     class Meta:
         verbose_name = _('goonsay')
