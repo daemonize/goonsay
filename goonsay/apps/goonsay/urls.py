@@ -14,18 +14,13 @@ urlpatterns = patterns('',
     ),
     url(
         r'^browse/$',
-        'goonsay.apps.goonsay.views.browse',
-        name='browse'
-    ),
-    url(
-        r'^browse/(?P<page>[0-9(?:last)]+)/$',
         'django.views.generic.list_detail.object_list',
         {
             'queryset': GoonSay.objects.order_by('added').approved(),
-            'paginate_by': 25,
+            'paginate_by': 20,
             'extra_context': {'title': 'Browse'},
         },
-        name='browse-paged',
+        name='browse'
     ),
     url(
         r'^random/$',

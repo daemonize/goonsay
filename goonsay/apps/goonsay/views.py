@@ -1,13 +1,9 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.core.urlresolvers import reverse
-from django.http import Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.http import Http404, HttpResponseRedirect
 
 from goonsay.apps.goonsay.models import GoonSay
 from goonsay.apps.goonsay.forms import GoonSayForm
-
-def browse(request):
-    return HttpResponsePermanentRedirect(reverse('goonsay:browse-paged', kwargs={'page': 1}))
 
 def random(request):
     qs = GoonSay.objects.order_by('?').approved()[:1]
