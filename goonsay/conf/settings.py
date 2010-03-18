@@ -28,13 +28,13 @@ USE_I18N = True
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/admin-media/'
-
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'uploads')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'static')
+
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 ROOT_URLCONF = 'goonsay.conf.urls'
 
