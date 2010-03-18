@@ -1,15 +1,16 @@
-import datetime
-
 from haystack.indexes import *
 from haystack import site
 
 from goonsay.apps.goonsay.models import GoonSay
 
-class GoonSayIndex(RealTimeSearchIndex):
+class GoonSayIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
     added = DateTimeField(model_attr='added')
 
     def get_queryset(self):
-        return GoonSay.objects.filter(added__lte=datetime.datetime.now())
+        return GoonSay.objects.all().approved()
+
+    def load_all_queryset(self):
+        return GoonSay.objects.all().approved().select_related()
 
 site.register(GoonSay, GoonSayIndex)
