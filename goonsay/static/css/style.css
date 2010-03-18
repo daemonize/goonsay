@@ -491,3 +491,7 @@ div.goonsay-voting-confirm div { margin-top: 1em; }
 div.voting { display: inline; float: right; }
 
 div#vote-msg { text-align: center; display: none; }
+
+div.vote-msg { display: inline; float: right; margin-right: 50px; display: none; }
+div.vote-msg .success { color: #390; }
+div.vote-msg .error { color: #D90000; }

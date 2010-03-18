@@ -13,9 +13,9 @@
 <div class="goonsay-list {% cycle 'leftgoonsay' 'rightgoonsay' %}">
     <div class="title"><a href="{{ object.get_absolute_url }}">{{ object }}</a>
         <div class="voting">
-            <a class="vote-up" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
+            <a class="vote-link" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
             (<span class="score-value">{{ score.score }}</span>) 
-            <a class="vote-down" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
+            <a class="vote-link" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
         </div>
     </div>
     <blockquote>
