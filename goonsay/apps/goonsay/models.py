@@ -2,14 +2,11 @@ from django.db import models
 from django.utils.translation  import ugettext_lazy as _
 
 import gatekeeper
-from djangoratings.fields import AnonymousRatingField
 
 class GoonSay(models.Model):
     text = models.TextField(_('text'))
     added = models.DateTimeField(_('added'), auto_now_add=True)
     added_ip = models.IPAddressField(_('added by ip'))
-
-    rating = AnonymousRatingField(range=5, can_change_vote=True)
 
     class Meta:
         verbose_name = _('goonsay')

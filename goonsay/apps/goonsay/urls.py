@@ -41,6 +41,17 @@ urlpatterns = patterns('',
         name='detail',
     ),
     url(
+        r'^(?P<object_id>\d+)/vote/(?P<direction>up|down|clear)/$',
+        'voting.views.vote_on_object',
+        {
+            'model': GoonSay,
+            'allow_xmlhttprequest': True,
+            'template_name': 'goonsay/goonsay_detail.html',
+            'extra_context': {'voting_confirm': True},
+        },
+        name='voting',
+    ),
+    url(
         r'^$',
         'django.views.generic.simple.direct_to_template',
         {

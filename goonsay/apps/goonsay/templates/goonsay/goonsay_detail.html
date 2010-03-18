@@ -1,10 +1,33 @@
 {% extends "base.html" %}
+{% load voting_tags %}
 
 {% block title %}{{ object }}{% endblock %}
 
+{% block extra_js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+    });
+</script>
+{% endblock %}
+
 {% block content %}
+{% score_for_object object as score %}
+{% if voting_confirm %}
+    <form action="" method="POST">
+        <div class="goonsay-voting-confirm">
+            Do you Really want to vote this {{ direction }}?
+            <div><input class="submit" type="submit" value="Click to Confirm" /></div>
+        </div>
+    </form>
+{% endif %}
 <div class="goonsay">
-    <div class="title">{{ object }}</div>
+    <div class="title">{{ object }}
+        <div class="voting">
+            <a class="up" title="Vote {{ object }} Up" href="{% url goonsay:voting object_id=object.pk direction='up' %}">+</a>
+            ({{ score.score }}) 
+            <a class="down" title="Vote {{ object }} Down" href="{% url goonsay:voting object_id=object.pk direction='down' %}">-</a>
+        </div>
+    </div>
     <blockquote>
             {{ object.text }}
     </blockquote>
