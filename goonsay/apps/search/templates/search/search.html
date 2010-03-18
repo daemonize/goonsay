@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load goonsay_tags voting_tags %}
 
 {% block title %}Search{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/vote.js"></script>
+{% endblock %}
 
 {% block search %}
 <h4>Search</h4>
@@ -16,20 +21,24 @@
 {% endblock search %}
 
 {% block content %}
-    <form method="get" action="">
-        <div class="search">
-            {{ form.as_p }}
-            <input class="submit" type="submit" value="Search" />
-        </div>
-    </form>
-
     {% if query %}
         <h3>Results</h3>
 
         {% for result in page.object_list %}
-            <p>
-                <a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a>
-            </p>
+            {% score_for_object result.object as score %}
+            <div class="goonsay-list {% cycle 'leftgoonsay' 'rightgoonsay' %}">
+                <div class="title">
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a>
+                    <div class="voting">
+                        <a class="vote-link" title="Vote {{ result.object }} Up" href="{% url goonsay:voting object_id=result.object.pk direction='up' %}">+</a>
+                        (<span class="score-value">{{ score.score }}</span>) 
+                        <a class="vote-link" title="Vote {{ result.object }} Down" href="{% url goonsay:voting object_id=result.object.pk direction='down' %}">-</a>
+                    </div>
+                </div>
+                <blockquote>
+                    {{ result.object.text }}
+                </blockquote>
+            </div>
         {% empty %}
             <p>No results found.</p>
         {% endfor %}
