@@ -45,7 +45,6 @@ LOGIN_REDIRECT_URL = '/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
-
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'templates'),
 )
@@ -60,6 +59,7 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
     'staticfiles.context_processors.static_url',
+    'navbar.context_processors.navbars',
 )
 
 INSTALLED_APPS = (

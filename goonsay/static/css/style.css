@@ -185,7 +185,7 @@ text-transform: lowercase;
 text-decoration: none;
 }
 
-#menu li a.active
+#menu li a.selected
 {
 background: #CA2F2F url('../img/n3.gif') repeat-x;
 color: #fff;
