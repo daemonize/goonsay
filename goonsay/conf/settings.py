@@ -42,6 +42,12 @@ LOGIN_URL = '/accounts/login/'
 LOGOUT_URL = '/accounts/logout/'
 LOGIN_REDIRECT_URL = '/'
 
+HAYSTACK_SITECONF = 'goonsay.conf.search'
+
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+
+HAYSTACK_WHOOSH_PATH = '/home/goonsay/whoosh/goonsay_index'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
@@ -77,6 +83,7 @@ INSTALLED_APPS = (
     'gatekeeper',
     'voting',
     'navbar',
+    'haystack',
 
     'goonsay.apps.goonsay',
 )
