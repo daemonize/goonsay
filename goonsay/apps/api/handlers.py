@@ -17,11 +17,9 @@ class GoonSayHandler(BaseHandler):
     def content_size(self, goonsay):
         return len(goonsay.text)
     
-    @require_extended
     def read(self, *args, **kwargs):
         return super(GoonSayHandler, self).read(*args, **kwargs)
 
-    @require_extended
     @throttle(5, 10*60, 'create_goonsay')
     def create(self, request, id=None):
         if id:
