@@ -75,7 +75,7 @@ INSTALLED_APPS = (
     'south',
 
     'gatekeeper',
-    'djangoratings',
+    'voting',
     'navbar',
 
     'goonsay.apps.goonsay',
