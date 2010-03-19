@@ -12,4 +12,5 @@ goonsay_resource = Resource(handler=GoonSayHandler)
 urlpatterns = patterns('',
     url(r'^goonsays/$', goonsay_resource),
     url(r'^goonsays/(?P<id>\d+)/$', goonsay_resource),
+    url(r'^goonsays/(?P<action>(?:random|top|latest))/$', goonsay_resource),
 )
