@@ -1,4 +1,4 @@
-{% load navbar %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load navbar goonsay_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>:goonsay: {% block title %}{% endblock %}</title>
@@ -71,7 +71,11 @@
         </div>
 
         <div id="footer" class="fluid">
-            Copyright &copy; 2010 Your Website. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a>.
+            <div class="copyright">
+            </div>
+            <div class="stats">
+                {% show_goonsay_stats %}
+            </div>
         </div>
     </body>
 </html>

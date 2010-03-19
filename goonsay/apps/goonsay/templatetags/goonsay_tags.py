@@ -1,7 +1,16 @@
 from django.template import Library
 
+from goonsay.apps.goonsay.models import GoonSay
+
 register = Library()
 
+@register.inclusion_tag('goonsay/stats.html')
+def show_goonsay_stats():
+    approved = len(GoonSay.objects.all().approved())
+    pending = len(GoonSay.objects.all().pending())
+    return {'approved': approved, 'pending': pending}
+
+@register.inclusion_tag('render_paginator.html', takes_context=True)
 def render_paginator(context, first_last_amount=2, before_after_amount=4):
     page_obj = context['page_obj']
     paginator = context['paginator']
@@ -36,5 +45,3 @@ def render_paginator(context, first_last_amount=2, before_after_amount=4):
         'page_obj': page_obj,
         'page_numbers': page_numbers
     }
-
-register.inclusion_tag('render_paginator.html', takes_context=True)(render_paginator)
