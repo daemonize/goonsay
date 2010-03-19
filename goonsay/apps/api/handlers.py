@@ -44,7 +44,7 @@ class GoonSayHandler(BaseHandler):
         attrs = self.flatten_dict(request.data)
 
         if self.exists(**attrs):
-            return rc.DUPLICATE_ENTRY
+            return GoonSay.objects.get(text=attrs['text'])
         else:
             item = GoonSay(
                     text=attrs['text'],
