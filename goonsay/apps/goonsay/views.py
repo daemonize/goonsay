@@ -1,10 +1,12 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import Http404, HttpResponseRedirect
+from django.views.decorators.cache import cache_control, never_cache
 
 from goonsay.apps.goonsay.models import GoonSay
 from goonsay.apps.goonsay.forms import GoonSayForm
 
+@never_cache
 def random(request):
     qs = GoonSay.objects.order_by('?').approved()[:1]
     if len(qs):

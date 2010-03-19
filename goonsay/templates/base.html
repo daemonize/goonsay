@@ -1,4 +1,4 @@
-{% load navbar goonsay_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load cache navbar goonsay_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>:goonsay: {% block title %}{% endblock %}</title>
@@ -21,16 +21,6 @@
                 {% block menu %}
                 <div id="menu">
                     {% navbars %}
-                    {% comment %}
-                    <ul>
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">Latest</a></li>
-                        <li><a href="#">Random</a></li>
-                        <li><a href="#">Top</a></li>
-                        <li><a href="#">Add</a></li>
-                        <li><a href="#">Search</a></li>
-                    </ul>
-                    {% endcomment %}
                 </div>
                 {% endblock menu %}
 
@@ -84,7 +74,9 @@
             <div class="copyright">
             </div>
             <div class="stats">
-                {% show_goonsay_stats %}
+                {% cache 600 "goonsay_stats" %}
+                    {% show_goonsay_stats %}
+                {% endcache %}
             </div>
         </div>
     </body>

@@ -54,7 +54,7 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, PROJECT_MODULE_NAME, 'templates'),
 )
 
-CACHE_BACKEND = 'dummy://'
+CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
