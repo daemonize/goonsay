@@ -1,9 +1,11 @@
+from django.db.models import signals
+
 from haystack.indexes import *
 from haystack import site
 
 from goonsay.apps.goonsay.models import GoonSay
 
-class GoonSayIndex(RealTimeSearchIndex):
+class GoonSayIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
 
     def get_queryset(self):
