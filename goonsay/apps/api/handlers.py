@@ -27,7 +27,10 @@ class GoonSayHandler(BaseHandler):
         elif action == 'latest':
             return GoonSay.objects.order_by('-added').approved()[:10]
         elif id:
-            goonsay = GoonSay.objects.get(pk=id)
+            try:
+                goonsay = GoonSay.objects.get(pk=id)
+            except GoonSay.DoesNotExist:
+                return rc.NOT_HERE
             return goonsay
         return GoonSay.objects.all().approved()
 
