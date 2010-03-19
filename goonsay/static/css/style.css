@@ -499,3 +499,5 @@ div.vote-msg .error { color: #D90000; }
 span.moderated { color: #D90000; padding-left: 10px; }
 
 div#footer .stats { float: right; }
+
+div#home-left { width: 80%; margin: auto; }
